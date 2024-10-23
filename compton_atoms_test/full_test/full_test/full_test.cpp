@@ -25,8 +25,8 @@ int main() {
     
     double n = 1.82e6; // cm^-3, scatterer (electron) number density
     double PL_ind = 2.0; // intrinsic source power-law index
-    int N_phot = 1000000; // the number of photons we want to shoot out
-    int phot_notif = 100000; // the number of photons after which you want to receive a notification that the program is running
+    int N_phot = 60000; // the number of photons we want to shoot out
+    int phot_notif = 6000; // the number of photons after which you want to receive a notification that the program is running
     int phot_store = 1000; // the number of photons after which you want to store the data in the output file
     
     double r = 0.5 * pc_cm; // cm, the inner radius of the spherical-toroidal geometry - Li & Shen 2023
@@ -102,7 +102,7 @@ int main() {
     // write out to file
     std::ofstream output; // create output file for our table
     if (writeout) {
-        output.open(std::string(output_dir) + "/full_test_run_log6_phot_O3.txt"); // open the file and name it
+        output.open(std::string(output_dir) + "/test_run.txt"); // open the file and name it
         output << "x y z vx vy vz N_scat E_initial E_final" << "\n"; // all column names at the top of the file
     }
     
@@ -117,7 +117,7 @@ int main() {
     for (int m = 0; m < N_phot; m++) {
             
         if (m % phot_notif == 0) {
-            std::cout << "Still running.. " << m/N_phot * 100 << "%" << std::endl; // update every phot_notif photons
+            std::cout << "Still running.. " << (double)m/N_phot * 100 << "%" << std::endl; // update every phot_notif photons
         }
 
         if (writeout_counter == phot_store) {
