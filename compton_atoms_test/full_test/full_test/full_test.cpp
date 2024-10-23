@@ -55,7 +55,8 @@ int main() {
     size_t j = 0; // table column index (fractions)
     
     std::ifstream KN;
-    KN.open("/Users/yashgursahani/Desktop/UMD_Research/high_z_agn/Compton Scattering Test/kn_table/kn_table/kn_table.txt");
+   // KN.open("/Users/yashgursahani/Desktop/UMD_Research/high_z_agn/Compton Scattering Test/kn_table/kn_table/kn_table.txt");
+    KN.open("compton_scattering/kn_table/kn_table/kn_table.txt"); // open path relative to git
     if (KN.is_open()) {
         for (std::string line; std::getline(KN, line, ' ');) { //
             if (j < f_size) { // moving fraction by fraction (column by column)
