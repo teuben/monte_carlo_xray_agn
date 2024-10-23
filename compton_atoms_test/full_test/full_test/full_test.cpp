@@ -10,7 +10,7 @@
 #include <string>
 #include <sstream>
 
-#include "/usr/local/include/omp.h" // included for multithreading in the photon loop
+#include "omp.h" // included for multithreading in the photon loop
 #include "full_test_functions.hpp"
 #include "boost/qvm.hpp"
 #include "boost/multi_array.hpp" // included so that we can read KN file into a table
