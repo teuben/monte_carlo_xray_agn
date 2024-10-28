@@ -9,8 +9,10 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <chrono>
 
-#include "omp.h" // included for multithreading in the photon loop
+//#include "omp.h" // included for multithreading in the photon loop
+//PJT is it even needed ?
 #include "full_test_functions.hpp"
 #include "boost/qvm.hpp"
 #include "boost/multi_array.hpp" // included so that we can read KN file into a table
@@ -50,6 +52,11 @@ int main() {
     typedef boost::multi_array<double, 2> array_type;
     typedef array_type::index index;
     array_type table(boost::extents[E_size][f_size]);
+
+#if 1
+    typedef boost::multi_array<double, 3> cube_type;    
+    cube_type  cube(boost::extents[2][3][4]);
+#endif    
     
     size_t i = 0; // table row index (energies)
     size_t j = 0; // table column index (fractions)
